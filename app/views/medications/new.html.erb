@@ -1,0 +1,17 @@
+<h1>Test New medications </h1>
+<%= form_for :medication, url: medications_path do |f| %>
+  <p>
+    <%= f.label :dosage %><br>
+    <%= f.text_field :dosage %>
+  </p>
+
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+
+<% end %>

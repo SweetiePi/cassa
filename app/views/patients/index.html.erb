@@ -6,10 +6,12 @@
     <th>Text</th>
   </tr>
 
-  <% @patients.each do |article| %>
+  <% @patients.each do |patient| %>
     <tr>
       <td><%= patient.name %></td>
-      <td><%= link_to 'Show', patient_path(patient) %></td>
+    </tr>
+    <tr>
+      <td><%= patient.status %></td>
     </tr>
   <% end %>
 </table>
