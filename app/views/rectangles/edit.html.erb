@@ -1,0 +1,77 @@
+<div id="nav_bar">
+<div class="nav_bar_content">
+<a class="nav_bar_link"><%= link_to 'Home', controller: 'welcome' %></a>
+<a class="nav_bar_link"><%= link_to 'Display', controller: 'rectangles' %></a>
+<a class="nav_bar_link"><%= link_to 'Add', new_rectangle_path %></a>
+</div>
+</div>
+<body>
+<h1>Editing Rectangles</h1>
+
+<%= form_for :rectangle, url: rectangle_path(@rectangle), method: :patch do |f| %>
+
+  <% if @rectangle.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@rectangle.errors.count, "error") %> prohibited
+        this rectangle from being saved:
+      </h2>
+      <ul>
+        <% @rectangle.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= f.label :width %>:   (Enter an integer between 1 and 700)<br>
+    <%= f.text_area :width %>
+  </p>
+
+  <p>
+    <%= f.label :height %>:   (Enter an integer between 1 and 700)<br>
+    <%= f.text_area :height %>
+  </p>
+
+  <p>
+    <%= f.label :color %><br>
+    <%= f.select(:color,
+    options_for_select([['Black', 'Black'],
+    ['Blue', 'Blue'],
+    ['Brown', 'Brown'],
+    ['Gray', 'Gray'],
+    ['Green', 'Green'],
+    ['Orange', 'Orange'],
+    ['Pink', 'Pink'],
+    ['Purple', 'Purple'],
+    ['Red', 'Red'],
+    ['White', 'White'],
+    ['Yellow', 'Yellow']])) %>
+  </p>
+
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_area :name %>
+  </p>
+
+  <p>
+    <%= f.label :images %><br>
+    <%= f.select(:images,
+    options_for_select([['NoImage', 'NoImage'],
+    ['GangnamStyle', 'GangnamStyle'],
+    ['GGDanny', 'GGDanny'],
+    ['Pepsi', 'Pepsi'],
+    ['Pikachu', 'Pikachu'],
+    ['Space', 'Space'],
+    ['Spooky', 'Spooky']])) %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+
+<% end %>
+
+<%= link_to 'Back', rectangles_path %>
+</body>

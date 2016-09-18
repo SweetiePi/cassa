@@ -1,0 +1,15 @@
+<h1>Listing patients</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+  </tr>
+
+  <% @patients.each do |article| %>
+    <tr>
+      <td><%= patient.name %></td>
+      <td><%= link_to 'Show', patient_path(patient) %></td>
+    </tr>
+  <% end %>
+</table>

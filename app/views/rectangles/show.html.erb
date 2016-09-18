@@ -1,0 +1,37 @@
+<body>
+<div id="nav_bar">
+<div class="nav_bar_content">
+<a class="nav_bar_link"><%= link_to 'Home', controller: 'welcome' %></a>
+Display
+<a class="nav_bar_link"><%= link_to 'Add', new_rectangle_path%></a>
+</div>
+</div>
+
+<p>
+  <strong>Width:</strong>
+  <%= @rectangle.width %>
+</p>
+
+<p>
+  <strong>Height:</strong>
+  <%= @rectangle.height %>
+</p>
+
+<p>
+  <strong>Color:</strong>
+  <%= @rectangle.color %>
+</p>
+
+<p>
+  <strong>Owner:</strong>
+  <%= @rectangle.name %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @rectangle.images %>
+</p>
+
+
+<h3><%= link_to 'Thank you! Click here to go back to Display', rectangles_path %></h3>
+</body>

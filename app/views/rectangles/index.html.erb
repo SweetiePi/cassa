@@ -1,0 +1,64 @@
+<body>
+  <div id="nav_bar">
+  <div class="nav_bar_content">
+  <a class="nav_bar_link"><%= link_to 'Home', controller: 'welcome' %></a>
+  Display
+  <a class="nav_bar_link"><%= link_to 'Add', new_rectangle_path%></a>
+  </div>
+  </div>
+<h1>Rectangle Database</h1>
+<h3><%= link_to 'Click here to add a Rectangle!', new_rectangle_path %></h3>
+
+<div id="database_table">
+<table id="rectangle_table">
+  <tr>
+    <th>Width</th>
+    <th>Height</th>
+    <th>Color</th>
+    <th>Image</th>
+    <th>Owner</th>
+    <th>Controls</th>
+
+  </tr>
+
+  <% @rectangles.each do |rectangle| %>
+
+    <tr>
+      <td><%= rectangle.width %>px.</td>
+      <td><%= rectangle.height %>px.</td>
+      <td><%= rectangle.color %></td>
+      <td><%= rectangle.images %></td>
+      <td><%= rectangle.name %></td>
+      <td id="special"><%= link_to 'Edit', edit_rectangle_path(rectangle) %>
+          <%= link_to 'Delete', rectangle_path(rectangle),
+              method: :delete,
+              data: { confirm: 'Are you sure you want to delete this rectangle? You might make it sad ;(' } %></td>
+      <td id="special"></td>
+
+
+    </tr>
+  <% end %>
+</table>
+</div>
+
+<h2> Display </h2>
+<div id="display">
+
+<% @rectangles.each do |rectangle| %>
+  <div id="shell">
+
+  This is <%= rectangle.name%>'s Rectangle
+
+  <div id="element" style="width:<%= rectangle.width %>px;
+    height:<%= rectangle.height %>px;
+    background:<%= rectangle.color %>">
+
+<% if rectangle.images!="NoImage" %>
+     <img src="/assets/<%= rectangle.images%>.gif" />
+<% end %>
+
+  </div>
+</div>
+  <% end %>
+</div>
+</body>
